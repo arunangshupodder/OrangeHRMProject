@@ -1,0 +1,9 @@
+objects\RegisteredUser.class
+pages\LoginPage.class
+base\BasePages.class
+base\BaseService.class
+pages\HomePage.class
+utils\Config.class
+utils\ReqresData.class
+pages\UserRegistrationPage.class
+base\Base.class
