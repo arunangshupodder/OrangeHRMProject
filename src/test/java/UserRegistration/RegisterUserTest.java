@@ -21,17 +21,20 @@ public class RegisterUserTest extends Base {
 		RegisteredUser user = ReqresData.getUserForRegistration();
 		Assert.assertNotNull("No user found from api.", user);
 		
-		//login to OrangeHRM using adin credentials
+		//login to OrangeHRM using admin credentials
 		LoginPage loginPage = new LoginPage(getDriver());
 		loginPage.loginWithAdminUser();
 		
+		//Navigate to Home Page
 		HomePage homePage = new HomePage(getDriver());
 		homePage.navigateToUserRegistrationPage();
 		
+		//Navigate to User Registration Page and enter user details
 		UserRegistrationPage regPage = new UserRegistrationPage(getDriver());
 		regPage.clickAddUser();
 		regPage.enterUserDetails(user);
 		
+		//Validate User Registration is successful
 		homePage.validateUserRegistrationIsSuccess();
 	}
 
