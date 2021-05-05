@@ -17,6 +17,14 @@ public class Config {
 		return getDataFromProp("orangehrm.url");
 	}
 	
+	public static String getReqresBaseURL() throws IOException {
+		return getDataFromProp("reqres.base.url");
+	}
+	
+	public static String getReqresUsersListURL() throws IOException {
+		return getDataFromProp("reqres.users.list");
+	}
+	
 	public static String getAdminUserName() throws IOException {
 		return getDataFromProp("orangehrm.admin.username");
 		
@@ -32,6 +40,10 @@ public class Config {
 	
 	public static String getEmployeePassword() throws IOException {
 		return getDataFromProp("orangehrm.test.password");
+	}
+	
+	public static int getEmployeeIdFromReqres() throws IOException {
+		return Integer.parseInt(getDataFromProp("reqres.user.id"));
 	}
 
 }

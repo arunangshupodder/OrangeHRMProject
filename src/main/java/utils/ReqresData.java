@@ -1,16 +1,20 @@
 package utils;
 
+import java.io.IOException;
+
 import org.json.JSONArray;
 
 import base.BaseService;
 import io.restassured.response.Response;
+import junit.framework.Assert;
 import objects.RegisteredUser;
 
 public class ReqresData {
 	
-	public static RegisteredUser getUserForRegistration() {
-		Response response = BaseService.get("https://reqres.in/api/users?page=2");
-		return getUserFromUserList(7, response);
+	public static RegisteredUser getUserForRegistration() throws IOException {
+		Response response = BaseService.get(Config.getReqresBaseURL()+Config.getReqresUsersListURL());
+		Assert.assertTrue("Error retrieving user list from api.", response.statusCode()==200);
+		return getUserFromUserList(Config.getEmployeeIdFromReqres(), response);
 	}
 	
 	private static RegisteredUser getUserFromUserList(int id, Response response) {

@@ -33,7 +33,6 @@ public class RegisterUserTest extends Base {
 		regPage.enterUserDetails(user);
 		
 		homePage.validateUserRegistrationIsSuccess();
-		
 	}
 
 }
